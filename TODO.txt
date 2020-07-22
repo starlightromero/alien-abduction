@@ -31,8 +31,3 @@ POST LEVEL ONE TODO:
 
   *I want them to walk off screen, come back on screen at random
   *pace between random areas, pause, and then begin walking again
-
-  walk off screen = x > width, x < 0
-  come back on screen = reset x to greater than 0, less than width
-    after setTimeout - take as parameter
-  
