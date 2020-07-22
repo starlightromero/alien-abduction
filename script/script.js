@@ -1,8 +1,8 @@
-/*    global
-     background, createCanvas, fill, height, LEFT_ARROW, RIGHT_ARROW, UP_ARROW, DOWN_ARROW, map
-     noStroke, random, strokeWeight, text, textSize, width, loadSound, rect, triangle, collidePointCircle, collideRectRect, collidePointRect, keyCode, keyPressed
+/*   global
+     background, createCanvas, fill, height, LEFT_ARROW, RIGHT_ARROW, UP_ARROW, DOWN_ARROW
+     noStroke, random, strokeWeight, text, textSize, width, loadSound, rect, collideRectRect, keyCode
      loadImage, image, loadFont, textAlign, CENTER, textFont, windowWidth, windowHeight, strokeWeight, stroke
-     resizeCanvas, keyIsDown, noFill, angleMode, DEGREES, rectMode, soundFormats, p5, WEBGL, rotateY, RIGHT, second, circle, millis
+     resizeCanvas, keyIsDown, noFill, angleMode, DEGREES, RIGHT, circle, millis
  */
 
 //           _____                   _____                   _____                   _____                   _____                   _____
@@ -221,7 +221,7 @@ function draw () {
       // human.pause()
     }
 
-    if (time.update() != 0) {
+    if (time.update() !== 0) {
       score.show()
       status.show()
       time.show()
@@ -349,12 +349,12 @@ class Game {
       completed: 'completed',
       gameover: 'gameover'
     }
-    this.level
   }
+
   startTimer () {
-    let seconds = 61
-    let timePassed = millis() / 1000
-    let timeRemaining = Math.floor(seconds - timePassed)
+    const seconds = 61
+    const timePassed = millis() / 1000
+    const timeRemaining = Math.floor(seconds - timePassed)
     if (timeRemaining >= 0) {
       return timeRemaining
     }
@@ -407,13 +407,11 @@ class Score extends Display {
   constructor () {
     super()
     this.score = 0
-    this.scoreLength
     this.scorex = width - 5
     this.scorey = this.fontSize
 
     this.x = width
     this.y = this.scorey - this.fontSize / 2
-    this.width
     this.height = this.fontSize * 1.2
   }
 
@@ -476,8 +474,8 @@ class Time extends Display {
   }
 
   update () {
-    let timePassed = millis() / 1000
-    let timeRemaining = Math.floor(this.seconds - timePassed)
+    const timePassed = millis() / 1000
+    const timeRemaining = Math.floor(this.seconds - timePassed)
     if (timeRemaining >= 0) {
       return timeRemaining
     }
@@ -634,13 +632,13 @@ class Beam {
     ship.beam = false
     this.height = 1
     for (const human of humans) {
-      let backToEarth = height - sidewalk.height - human.height
+      const backToEarth = height - sidewalk.height - human.height
       if (human.y < backToEarth) {
         human.y += this.abductionSpeed
       }
     }
     for (const earthObject of earthObjects) {
-      let backToEarth = height - sidewalk.height - earthObject.height
+      const backToEarth = height - sidewalk.height - earthObject.height
       if (earthObject.y < backToEarth) {
         earthObject.y += this.abductionSpeed
       }
@@ -656,7 +654,7 @@ class Beam {
   }
 
   abduct (human, index) {
-    let hit = collideRectRect(this.x, this.y, this.width, this.height, human.x, human.y, human.width, human.height)
+    const hit = collideRectRect(this.x, this.y, this.width, this.height, human.x, human.y, human.width, human.height)
     if (hit) {
       keyPressed()
       human.x = this.x + this.width / 2 - human.width / 2
@@ -670,8 +668,8 @@ class Beam {
     }
   }
 
-  malfunction (earthObject, index) {
-    let hit = collideRectRect(this.x, this.y, this.width, this.height, earthObject.x, earthObject.y, earthObject.width, earthObject.height)
+  malfunction (earthObject) {
+    const hit = collideRectRect(this.x, this.y, this.width, this.height, earthObject.x, earthObject.y, earthObject.width, earthObject.height)
     if (hit) {
       earthObject.y -= this.abductionSpeed
       this.beamDown = false
@@ -744,7 +742,7 @@ class MotherShip {
       }
 
       for (const obj of earthObjects) {
-        let hit = collideRectRect(this.x, this.y, this.width, this.height, obj.x, obj.y, obj.width, obj.height)
+        const hit = collideRectRect(this.x, this.y, this.width, this.height, obj.x, obj.y, obj.width, obj.height)
         if (hit) {
           this.changeStatus('crashed', 8000)
         }
@@ -810,7 +808,6 @@ class Human {
     this.height = light.height / 2.5
     this.width = this.height
     this.y = height - (sidewalk.height + this.height)
-    this.pointValue
     // this.paused = false
   }
 
@@ -840,18 +837,18 @@ class Human {
     } else if (this.x >= width && this.walkingRight) {
       this.walkingRight = false
       setTimeout(this.offScreen.bind(this), 3000)
-      console.log(`Exit stage Right`)
+      console.log('Exit stage Right')
     } else if (!this.walkingRight && this.x > 0 - 500) {
       this.left()
     } else if ((!this.walkingRight) && this.x <= 0) {
       this.walkingRight = true
       setTimeout(this.offScreen.bind(this), 2500)
-      console.log(`Exit stage Left`)
+      console.log('Exit stage Left')
     }
   }
 
-  generate (objClass) {
-    humans.push(new objClass())
+  generate (ObjClass) {
+    humans.push(new ObjClass())
   }
 }
 
@@ -943,20 +940,8 @@ class Sidewalk {
 }
 
 class EarthObject {
-  constructor () {
-    this.img
-    this.width
-    this.height
-    this.x
-    this.y
-  }
-
   show () {
     image(this.img, this.x, this.y, this.width, this.height)
-  }
-
-  generate (obj) {
-    earthObjects.push(obj)
   }
 }
 
