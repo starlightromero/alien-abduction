@@ -811,7 +811,9 @@ class Human {
     this.width = this.height
     this.y = height - (sidewalk.height + this.height)
     this.pointValue
-    // this.paused = false
+    // Will need to define this globally? Potentially? Also, need to refactor generate so that I can take an argument to make this work
+    // This is to pseudo randomize the x values so that child class instantiations don't appear on top of each other
+    this.possibleXValues = [0, width, -50, width + 50, -25, width + 25]
   }
 
   right () {
@@ -829,9 +831,15 @@ class Human {
   }
 
   offScreen () {
-    this.x = 0 || width
-    this.speed = random(2, 8)
-    console.log('BRB')
+    if (this.randomWalk < 6) {
+      this.x = 0
+      this.walkingRight = true
+      this.speed = random(2, 8)
+    } else {
+      this.x = width
+      this.walkingRight = false
+      this.speed = random(2, 8)
+    }
   }
 
   walk () {
@@ -839,14 +847,12 @@ class Human {
       this.right()
     } else if (this.x >= width && this.walkingRight) {
       this.walkingRight = false
-      setTimeout(this.offScreen.bind(this), 3000)
-      console.log(`Exit stage Right`)
+      this.offScreen()
     } else if (!this.walkingRight && this.x > 0 - 500) {
       this.left()
     } else if ((!this.walkingRight) && this.x <= 0) {
       this.walkingRight = true
-      setTimeout(this.offScreen.bind(this), 2500)
-      console.log(`Exit stage Left`)
+      this.offScreen()
     }
   }
 
@@ -858,7 +864,7 @@ class Human {
 class Parental extends Human {
   constructor () {
     super()
-    this.x = 0
+    this.x = Humans.possibleXValues
     this.pointValue = 80
     this.walkSpeed = 2
     this.walkingRight = true
@@ -894,10 +900,6 @@ class DogServant extends Human {
     this.leftVersionTwo = dogServantSubLeftOne
     this.img = this.rightVersion
   }
-
-  // show () {
-  //   image(this.img, this.x, this.y, this.width, this.height)
-  // }
 }
 
 //           _____                    _____                _____                    _____                _____                    _____
