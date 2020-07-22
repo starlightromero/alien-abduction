@@ -44,7 +44,10 @@ let tree
 const earthObjects = []
 
 const humans = []
-let human
+let parental
+let cycler
+let dogServant
+
 let parentalSubLeft
 let parentalSubRight
 let cyclerSubRight
@@ -161,13 +164,13 @@ function setup () {
   earthObjects.push(tree)
   earthObjects.push(light)
 
-  human = new Human()
+  parental = new Parental()
+  cycler = new Cycler()
+  dogServant = new DogServant()
 
-  for (let i = 0; i < 1; i++) {
-    human.generate(Parental)
-    human.generate(Cycler)
-    human.generate(DogServant)
-  }
+  humans.push(parental)
+  humans.push(cycler)
+  humans.push(dogServant)
 
   ship = new MotherShip()
   angle = 1
@@ -660,8 +663,8 @@ class Beam {
       human.x = this.x + this.width / 2 - human.width / 2
       human.y -= this.abductionSpeed
       if (human.y + (human.height / 2) <= this.y) {
-        humans.splice(index, 1)
-        human.generate(human.constructor)
+        human.x = 0
+        human.y = height - (sidewalk.height + this.height)
         score.score += human.pointValue
         ship.abductionCount.total++
       }
@@ -845,10 +848,6 @@ class Human {
       setTimeout(this.offScreen.bind(this), 2500)
       console.log('Exit stage Left')
     }
-  }
-
-  generate (ObjClass) {
-    humans.push(new ObjClass())
   }
 }
 
