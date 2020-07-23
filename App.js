@@ -43,5 +43,5 @@ let display
 let score
 let status
 let time
-let preGame
+let startScreen
 let postGame

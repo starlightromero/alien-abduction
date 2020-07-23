@@ -1,6 +1,6 @@
 /*  global
     resizeCanvas, windowWidth, windowHeight, width, height, sidewalk, hydrant
-    fountain, humans, score, status, tree, light, preGame, game, time
+    fountain, humans, score, status, tree, light, preGame, time, postGame
 */
 
 function windowResized () {
@@ -34,4 +34,8 @@ function windowResized () {
   for (const human of humans) {
     human.y = height - (sidewalk.height + human.height)
   }
+
+  postGame.x = width / 2
+  postGame.y = height / 4
+  postGame.fontSize = width / 7
 }

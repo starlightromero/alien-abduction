@@ -1,7 +1,7 @@
 /*  global
     width, height, textFont, textAlign, textSize, noStroke, fill, rect, text
     millis, strokeWeight, stroke, noFill, circle, CENTER, RIGHT, orbiterFont
-    ship, score, game
+    ship, score, game, Clickable
 */
 
 class Display {
@@ -105,7 +105,7 @@ class Time extends Display {
   }
 }
 
-class PreGame extends Display {
+class StartScreen extends Display {
   constructor () {
     super()
     this.x = width / 2
@@ -114,13 +114,40 @@ class PreGame extends Display {
   }
 
   startGame () {
-    textFont(this.font)
-    textAlign(CENTER, CENTER)
-    textSize(this.fontSize / 2)
-    noStroke()
-    fill(this.color())
-    text('Press any key to start', this.x, this.y + this.fontSize * 2)
+    const startGameButton = new Clickable()
+    startGameButton.resize(this.fontSize * 5, this.fontSize * 1)
+    startGameButton.locate(this.x - startGameButton.width / 2, this.y + this.fontSize * 1.25)
+    startGameButton.color = this.color()
+    startGameButton.cornerRadius = 100
+    startGameButton.strokeWeight = 0
+    startGameButton.text = 'START GAME'
+    startGameButton.textColor = '#0A005C'
+    startGameButton.textSize = this.fontSize / 2
+    startGameButton.textFont = this.font
+    startGameButton.textScaled = true
+    startGameButton.onHover = function () {
+      startGameButton.color = '#0A005C'
+      startGameButton.strokeWeight = 3
+      startGameButton.stroke = '#E581CA'
+      startGameButton.text = 'ARE YOU SURE?'
+      startGameButton.textColor = '#E581CA'
+      startGameButton.draw()
+    }
+    startGameButton.onPress = function () {
+      gameStart = millis()
+      game.state.current = game.state.playing
+    }
+    startGameButton.draw()
   }
+
+  // startGame () {
+  //   textFont(this.font)
+  //   textAlign(CENTER, CENTER)
+  //   textSize(this.fontSize / 2)
+  //   noStroke()
+  //   fill(this.color())
+  //   text('Press any key to start', this.x, this.y + this.fontSize * 2)
+  // }
 
   title () {
     textFont(this.font)

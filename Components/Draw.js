@@ -1,13 +1,13 @@
 /*  global
-    background, game, preGame, sidewalk, starBackground, earthObjects, humans
-    score, status, time, ship, time, postGame
+    background, game, sidewalk, starBackground, earthObjects, humans
+    score, status, time, ship, time, postGame, startScreen
 */
 
 function draw () {
   background(starBackground)
 
   if (game.state.current === game.state.start) {
-    preGame.show()
+    startScreen.show()
   } else if (game.state.current === game.state.playing) {
     sidewalk.show()
 

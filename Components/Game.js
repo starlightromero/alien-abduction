@@ -11,6 +11,7 @@ class Game {
       completed: 'completed',
       gameover: 'gameover'
     }
+    this.level = 0
   }
 
   timeRemaining () {

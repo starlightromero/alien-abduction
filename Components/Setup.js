@@ -1,7 +1,7 @@
 /*  global
   createCanvas, angleMode, windowWidth, windowHeight, Game, Display, Score
   earthObjects, StreetLight, Tree, Fountain, DEGREES, MotherShip, Status, Time
-  Sidewalk, Parental, Cycler, FireHydrant, DogServant, humans, PreGame, PostGame
+  Sidewalk, Parental, Cycler, FireHydrant, DogServant, humans, StartScreen, PostGame
   Beam
 */
 
@@ -46,6 +46,6 @@ function setup () {
   score = new Score()
   status = new Status()
   time = new Time()
-  preGame = new PreGame()
+  startScreen = new StartScreen()
   postGame = new PostGame()
 }
