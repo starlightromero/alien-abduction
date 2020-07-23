@@ -2,7 +2,7 @@
     image
 */
 
-export default class EarthObject {
+class ShowImage {
   show () {
     image(this.img, this.x, this.y, this.width, this.height)
   }
