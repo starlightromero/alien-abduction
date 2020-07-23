@@ -1,6 +1,7 @@
 /*  global
     width, height, textFont, textAlign, textSize, noStroke, fill, rect, text
-    millis, strokeWeight, stroke, noFill, circle, CENTER, RIGHT
+    millis, strokeWeight, stroke, noFill, circle, CENTER, RIGHT, orbiterFont
+    ship, score, game
 */
 
 class Display {
@@ -9,7 +10,7 @@ class Display {
     this.fontSize = height / 25
   }
 
-  updateColor () {
+  color () {
     if (ship.currentStatus === 'GOOD') {
       return 'rgba(229, 129, 202, 0.7)'
     }
@@ -35,7 +36,7 @@ class Score extends Display {
   }
 
   checkScoreLength () {
-    this.scoreLength = this.score.toString().length
+    this.scoreLength = ship.score.toString().length
     this.width = -160 - (this.fontSize * this.scoreLength / 1.5)
   }
 
@@ -44,7 +45,7 @@ class Score extends Display {
     textSize(this.fontSize)
     textAlign(RIGHT, CENTER)
     noStroke()
-    fill(this.updateColor())
+    fill(this.color())
     rect(this.x, this.y, this.width, this.height)
     fill(0)
     text(`SCORE: ${this.score}`, this.scorex, this.scorey)
@@ -70,7 +71,7 @@ class Status extends Display {
     textSize(this.fontSize)
     textAlign(RIGHT, CENTER)
     noStroke()
-    fill(this.updateColor())
+    fill(this.color())
     rect(this.x, this.y, this.width, this.height)
     fill(0)
     text(`STATUS: ${this.currentStatus}`, this.statusx, this.statusy)
@@ -89,16 +90,6 @@ class Time extends Display {
     this.width = width / 20
     this.height = height / 20
     this.fontSize = height / 7
-    this.seconds = 61
-  }
-
-  update () {
-    const timePassed = millis() / 1000
-    const timeRemaining = Math.floor(this.seconds - timePassed)
-    if (timeRemaining >= 0) {
-      return timeRemaining
-    }
-    return 0
   }
 
   show () {
@@ -106,11 +97,11 @@ class Time extends Display {
     textAlign(CENTER, CENTER)
     textSize(this.fontSize)
     strokeWeight(2)
-    stroke(this.updateColor())
+    stroke(this.color())
     noFill()
     circle(this.x, this.y, this.fontSize * 2)
     circle(this.x, this.y, this.fontSize * 2.2)
-    text(this.update(), this.x, this.y)
+    text(game.timeRemaining(), this.x, this.y)
   }
 }
 
@@ -127,7 +118,7 @@ class PreGame extends Display {
     textAlign(CENTER, CENTER)
     textSize(this.fontSize / 2)
     noStroke()
-    fill(this.updateColor())
+    fill(this.color())
     text('Press any key to start', this.x, this.y + this.fontSize * 2)
   }
 
@@ -136,7 +127,7 @@ class PreGame extends Display {
     textAlign(CENTER, CENTER)
     textSize(this.fontSize)
     strokeWeight(3)
-    stroke(this.updateColor())
+    stroke(this.color())
     noFill()
     text('ALIEN ABDUCTION', this.x, this.y)
   }
@@ -160,23 +151,23 @@ class PostGame extends Display {
     textAlign(CENTER, CENTER)
     textSize(this.fontSize / 4)
     noStroke()
-    fill(this.updateColor())
+    fill(this.color())
     text(`HUMANS ABDUCTED: ${ship.abductionCount.total}`, this.x, this.y + this.fontSize / 1.25)
     text(`SCORE: ${score.score}`, this.x, this.y + this.fontSize * 1.25)
   }
 
-  title () {
+  gameover () {
     textFont(this.font)
     textAlign(CENTER, CENTER)
     textSize(this.fontSize)
     strokeWeight(4)
-    stroke(this.updateColor())
+    stroke(this.color())
     noFill()
     text('GAME OVER', this.x, this.y)
   }
 
   show () {
-    this.title()
+    this.gameover()
     this.stats()
   }
 }

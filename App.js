@@ -1,4 +1,5 @@
 let game
+let gameStart
 
 let starBackground
 let sidewalk

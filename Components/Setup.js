@@ -1,5 +1,5 @@
 /*  global
-  createCanvas, angleMode, windowWidth, windowHeight, Game, game, Display, Score
+  createCanvas, angleMode, windowWidth, windowHeight, Game, Display, Score
   earthObjects, StreetLight, Tree, Fountain, DEGREES, MotherShip, Status, Time
   Sidewalk, Parental, Cycler, FireHydrant, DogServant, humans, PreGame, PostGame
   Beam
@@ -8,6 +8,8 @@
 function setup () {
   createCanvas(windowWidth, windowHeight)
   angleMode(DEGREES)
+
+  appStart = millis()
 
   game = new Game()
   game.state.current = game.state.start

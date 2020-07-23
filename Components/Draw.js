@@ -21,7 +21,7 @@ function draw () {
       // human.pause()
     }
 
-    if (time.update() !== 0) {
+    if (game.timeRemaining() !== 0) {
       score.show()
       status.show()
       time.show()
@@ -29,6 +29,8 @@ function draw () {
     }
 
     ship.show()
+  } else if (game.state.current === game.state.completed) {
+    postGame.show()
   } else if (game.state.current === game.state.gameover) {
     postGame.show()
   }

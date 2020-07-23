@@ -1,6 +1,7 @@
 /*  global
-    ShowImage, width, height, keyIsDown, collideRectRect
-    LEFT_ARROW, RIGHT_ARROW, UP_ARROW, DOWN_ARROW, keyPressed
+    ShowImage, width, height, keyIsDown, collideRectRect, humans, earthObjects
+    LEFT_ARROW, RIGHT_ARROW, UP_ARROW, DOWN_ARROW, keyPressed, ship, beamImg
+    sidewalk, random, possibleXValues, shipImg, beam, status
 */
 
 class Beam extends ShowImage {
@@ -78,7 +79,7 @@ class Beam extends ShowImage {
       if (human.y + (human.height / 2) <= this.y) {
         human.x = random(possibleXValues)
         human.y = height - (sidewalk.height + this.height)
-        score.score += human.pointValue
+        ship.score += human.pointValue
         ship.abductionCount.total++
       }
     }
@@ -107,6 +108,7 @@ class MotherShip extends ShowImage {
     this.speed = 5
     this.tilt = 0.25
     this.beam = false
+    this.score = 0
     this.abductionCount = {
       total: 0
     }
