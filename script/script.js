@@ -5,6 +5,8 @@
      resizeCanvas, keyIsDown, noFill, angleMode, DEGREES, RIGHT, circle, millis
  */
 
+import EarthObject from './EarthObject'
+
 //           _____                   _____                   _____                   _____                   _____                   _____
 //          /\    \                 /\    \                 /\    \                 /\    \                 /\    \                 /\    \
 //         /::\    \               /::\    \               /::\    \               /::\    \               /::\____\               /::\    \
@@ -941,11 +943,11 @@ class Sidewalk {
   }
 }
 
-class EarthObject {
-  show () {
-    image(this.img, this.x, this.y, this.width, this.height)
-  }
-}
+//  class EarthObject {
+//    show () {
+//      image(this.img, this.x, this.y, this.width, this.height)
+//    }
+// }
 
 class FireHydrant extends EarthObject {
   constructor () {
