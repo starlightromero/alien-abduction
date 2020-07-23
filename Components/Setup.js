@@ -24,11 +24,15 @@ function setup () {
   earthObjects.push(tree)
   earthObjects.push(light)
 
-  parental = new Parental()
-  cycler = new Cycler()
-  dogServant = new DogServant()
+  possibleXValues = [0, width, -50, width + 50, -25, width + 25]
+
+  parental = new Parental(random(possibleXValues))
+  parental2 = new Parental(random(possibleXValues + 1))
+  cycler = new Cycler(random(possibleXValues))
+  dogServant = new DogServant(random(possibleXValues))
 
   humans.push(parental)
+  humans.push(parental2)
   humans.push(cycler)
   humans.push(dogServant)
 

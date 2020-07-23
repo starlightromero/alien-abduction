@@ -76,7 +76,7 @@ class Beam extends ShowImage {
       human.x = this.x + this.width / 2 - human.width / 2
       human.y -= this.abductionSpeed
       if (human.y + (human.height / 2) <= this.y) {
-        human.x = 0
+        human.x = random(possibleXValues)
         human.y = height - (sidewalk.height + this.height)
         score.score += human.pointValue
         ship.abductionCount.total++

@@ -52,9 +52,9 @@ class Human extends ShowImage {
 }
 
 class Parental extends Human {
-  constructor () {
+  constructor (x) {
     super()
-    this.x = Human.possibleXValues
+    this.x = x
     this.pointValue = 80
     this.walkSpeed = 2
     this.walkingRight = true
@@ -65,9 +65,9 @@ class Parental extends Human {
 }
 
 class Cycler extends Human {
-  constructor () {
+  constructor (x) {
     super()
-    this.x = 0
+    this.x = x
     this.pointValue = 65
     this.walkSpeed = 4
     this.walkingRight = true
@@ -78,9 +78,9 @@ class Cycler extends Human {
 }
 
 class DogServant extends Human {
-  constructor () {
+  constructor (x) {
     super()
-    this.x = width
+    this.x = x
     this.pointValue = 50
     this.walkSpeed = 2
     this.walkingRight = false
