@@ -48,4 +48,5 @@ function setup () {
   time = new Time()
   startScreen = new StartScreen()
   postGame = new PostGame()
+  controlsScreen = new ControlsScreen()
 }

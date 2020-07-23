@@ -45,3 +45,4 @@ let status
 let time
 let startScreen
 let postGame
+let controlsScreen

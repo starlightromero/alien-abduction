@@ -1,12 +1,14 @@
 /*  global
     width, height, textFont, textAlign, textSize, noStroke, fill, rect, text
-    millis, strokeWeight, stroke, noFill, circle, CENTER, RIGHT, orbiterFont
+    strokeWeight, stroke, noFill, circle, CENTER, RIGHT, orbiterFont
     ship, score, game, Clickable
 */
 
 class Display {
   constructor () {
     this.font = orbiterFont
+    this.titleSize = width / 12
+    this.headingSize = this.titleSize / 3.5
     this.fontSize = height / 25
   }
 
@@ -20,6 +22,35 @@ class Display {
     if (ship.currentStatus === 'CRASHED') {
       return 'rgba(255, 0, 0, 0.7)'
     }
+  }
+
+  title () {
+    textFont(this.font)
+    textAlign(CENTER, CENTER)
+    textSize(this.titleSize)
+    strokeWeight(4)
+    stroke(this.color())
+    noFill()
+    this.titleText()
+  }
+
+  dismissScreen () {
+    const dismissButton = new Clickable()
+    dismissButton.resize(100, 100)
+    dismissButton.locate(width / 2 - dismissButton.width / 2, height - dismissButton.height * 1.5)
+    dismissButton.color = 'rgba(0,0,0,0)'
+    dismissButton.strokeWeight = 0
+    dismissButton.text = 'X'
+    dismissButton.textColor = this.color()
+    dismissButton.textSize = this.titleSize / 2
+    dismissButton.textFont = this.font
+    dismissButton.textScaled = true
+    dismissButton.onHover = function () {
+      dismissButton.textColor = '#0A005C'
+      dismissButton.draw()
+    }
+    dismissButton.onPress = this.onDismiss
+    dismissButton.draw()
   }
 }
 
@@ -105,71 +136,11 @@ class Time extends Display {
   }
 }
 
-class StartScreen extends Display {
-  constructor () {
-    super()
-    this.x = width / 2
-    this.y = height / 4
-    this.fontSize = width / 12
-  }
-
-  startGame () {
-    const startGameButton = new Clickable()
-    startGameButton.resize(this.fontSize * 5, this.fontSize * 1)
-    startGameButton.locate(this.x - startGameButton.width / 2, this.y + this.fontSize * 1.25)
-    startGameButton.color = this.color()
-    startGameButton.cornerRadius = 100
-    startGameButton.strokeWeight = 0
-    startGameButton.text = 'START GAME'
-    startGameButton.textColor = '#0A005C'
-    startGameButton.textSize = this.fontSize / 2
-    startGameButton.textFont = this.font
-    startGameButton.textScaled = true
-    startGameButton.onHover = function () {
-      startGameButton.color = '#0A005C'
-      startGameButton.strokeWeight = 3
-      startGameButton.stroke = '#E581CA'
-      startGameButton.text = 'ARE YOU SURE?'
-      startGameButton.textColor = '#E581CA'
-      startGameButton.draw()
-    }
-    startGameButton.onPress = function () {
-      gameStart = millis()
-      game.state.current = game.state.playing
-    }
-    startGameButton.draw()
-  }
-
-  // startGame () {
-  //   textFont(this.font)
-  //   textAlign(CENTER, CENTER)
-  //   textSize(this.fontSize / 2)
-  //   noStroke()
-  //   fill(this.color())
-  //   text('Press any key to start', this.x, this.y + this.fontSize * 2)
-  // }
-
-  title () {
-    textFont(this.font)
-    textAlign(CENTER, CENTER)
-    textSize(this.fontSize)
-    strokeWeight(3)
-    stroke(this.color())
-    noFill()
-    text('ALIEN ABDUCTION', this.x, this.y)
-  }
-
-  show () {
-    this.title()
-    this.startGame()
-  }
-}
-
 class PostGame extends Display {
   constructor () {
     super()
     this.x = width / 2
-    this.y = height / 4
+    this.y = height / 6
     this.fontSize = width / 7
   }
 

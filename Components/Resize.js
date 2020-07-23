@@ -1,14 +1,14 @@
 /*  global
     resizeCanvas, windowWidth, windowHeight, width, height, sidewalk, hydrant
-    fountain, humans, score, status, tree, light, preGame, time, postGame
+    fountain, humans, score, status, tree, light, startScreen, time, postGame
 */
 
 function windowResized () {
   resizeCanvas(windowWidth, windowHeight)
 
-  preGame.x = width / 2
-  preGame.y = height / 4
-  preGame.fontSize = width / 12
+  startScreen.x = width / 2
+  startScreen.y = height / 4
+  startScreen.fontSize = width / 12
 
   score.scorex = width - 5
   score.x = width

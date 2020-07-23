@@ -33,5 +33,7 @@ function draw () {
     postGame.show()
   } else if (game.state.current === game.state.gameover) {
     postGame.show()
+  } else if (game.state.current === game.state.controls) {
+    controlsScreen.show()
   }
 }

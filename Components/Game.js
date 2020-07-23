@@ -6,6 +6,7 @@ class Game {
   constructor () {
     this.state = {
       current: '',
+      controls: 'controls',
       start: 'start',
       playing: 'playing',
       completed: 'completed',
