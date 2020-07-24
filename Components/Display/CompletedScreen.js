@@ -33,6 +33,7 @@ class CompletedScreen extends Display {
     continueButton.onPress = function () {
       ship.score = 0
       ship.abductionCount.total = 0
+      ship.reset()
       game.state.current = game.state.level
     }
     continueButton.draw()

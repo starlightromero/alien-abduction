@@ -120,6 +120,11 @@ class MotherShip extends ShowImage {
     this.currentStatus = this.status.good
   }
 
+  reset () {
+    this.x = width / 2 - this.width / 2
+    this.y = height / 18
+  }
+
   // rotateLeft () {
   //   if (angle < 30) {
   //     angle -= this.tilt

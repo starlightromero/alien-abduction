@@ -34,6 +34,7 @@ class GameoverScreen extends Display {
       ship.score = 0
       ship.abductionCount.total = 0
       game.level = 1
+      ship.reset()
       game.state.current = game.state.start
     }
     returnHomeButton.draw()
