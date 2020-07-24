@@ -1,6 +1,7 @@
 /*  global
-    background, game, sidewalk, starBackground, earthObjects, humans, levelScreen
-    score, status, time, ship, time, postGame, startScreen, controlsScreen
+    background, game, sidewalk, starBackground, earthObjects, humans
+    score, status, time, ship, time, startScreen, levelScreen, controlsScreen
+    gameoverScreen, completedScreen
 */
 
 function draw () {
@@ -30,9 +31,9 @@ function draw () {
 
     ship.show()
   } else if (game.state.current === game.state.completed) {
-    postGame.show()
+    completedScreen.show()
   } else if (game.state.current === game.state.gameover) {
-    gameover.show()
+    gameoverScreen.show()
   } else if (game.state.current === game.state.controls) {
     controlsScreen.show()
   }

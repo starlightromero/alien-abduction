@@ -47,4 +47,5 @@ let postGame
 let controlsScreen
 let levelScreen
 let levelStart
+let completedScreen
 let gameoverScreen

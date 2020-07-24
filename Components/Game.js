@@ -33,6 +33,7 @@ class Game {
       return timeRemaining
     } else if (ship.score >= this.scoreNeeded()) {
       this.state.current = this.state.completed
+      this.level++
       return 0
     } else {
       this.state.current = this.state.gameover

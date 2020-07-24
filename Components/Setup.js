@@ -47,8 +47,8 @@ function setup () {
   status = new Status()
   time = new Time()
   startScreen = new StartScreen()
-  postGame = new PostGame()
   controlsScreen = new ControlsScreen()
   levelScreen = new LevelScreen()
+  completedScreen = new CompletedScreen()
   gameoverScreen = new GameoverScreen()
 }

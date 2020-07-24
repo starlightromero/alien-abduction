@@ -1,7 +1,7 @@
 /*  global
     width, height, textFont, textAlign, textSize, noStroke, fill, rect, text
     strokeWeight, stroke, noFill, circle, CENTER, RIGHT, orbiterFont
-    ship, score, game, Clickable
+    ship, game, Clickable
 */
 
 class Display {
