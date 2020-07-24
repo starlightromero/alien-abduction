@@ -1,6 +1,6 @@
 /*  global
-    Display, width, height, textFont, textAlign, CENTER, textSize, noStroke, fill
-    text, score, ship, strokeWeight, noFill, stroke
+    Display, width, height, textFont, textAlign, CENTER, textSize, noStroke
+    text, score, ship, strokeWeight, noFill, stroke, Clickable, fill
 */
 
 class GameoverScreen extends Display {
@@ -8,6 +8,34 @@ class GameoverScreen extends Display {
     super()
     this.y = height / 6
     this.fontSize = width / 7
+  }
+
+  returnHome () {
+    const returnHomeButton = new Clickable()
+    returnHomeButton.resize(this.titleSize * 4, this.titleSize / 2)
+    returnHomeButton.locate(this.x - returnHomeButton.width / 2, this.y + this.titleSize * 4)
+    returnHomeButton.color = this.color()
+    returnHomeButton.cornerRadius = 100
+    returnHomeButton.strokeWeight = 0
+    returnHomeButton.text = 'RETURN TO EARTH'
+    returnHomeButton.textColor = '#0A005C'
+    returnHomeButton.textSize = this.buttonSize
+    returnHomeButton.textFont = this.font
+    returnHomeButton.textScaled = true
+    returnHomeButton.onHover = function () {
+      returnHomeButton.color = '#0A005C'
+      returnHomeButton.strokeWeight = 3
+      returnHomeButton.stroke = '#E581CA'
+      returnHomeButton.text = 'SIMPLE MORTAL'
+      returnHomeButton.textColor = '#E581CA'
+      returnHomeButton.draw()
+    }
+    returnHomeButton.onPress = function () {
+      ship.score = 0
+      ship.abductionCount.total = 0
+      game.state.current = game.state.start
+    }
+    returnHomeButton.draw()
   }
 
   stats () {
@@ -33,5 +61,6 @@ class GameoverScreen extends Display {
   show () {
     this.gameover()
     this.stats()
+    this.returnHome()
   }
 }
