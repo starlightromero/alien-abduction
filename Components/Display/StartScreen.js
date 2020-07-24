@@ -1,12 +1,10 @@
 /*  global
-    Display, width, height, Clickable, game, millis, CENTER, textFont, textAlign
-    textSize, strokeWeight, stroke, noFill, text
+    Display, height, Clickable, game, millis
 */
 
 class StartScreen extends Display {
   constructor () {
     super()
-    this.x = width / 2
     this.y = height / 4
   }
 
@@ -84,17 +82,13 @@ class StartScreen extends Display {
     }
     startGameButton.onPress = function () {
       gameStart = millis()
-      game.state.current = game.state.playing
+      game.state.current = game.state.level
     }
     startGameButton.draw()
   }
 
-  titleText () {
-    text('ALIEN ABDUCTION', this.x, this.y)
-  }
-
   show () {
-    this.title()
+    this.title('ALIEN ABDUCTION')
     this.startGameButton()
     this.controlsButton()
     this.originButton()

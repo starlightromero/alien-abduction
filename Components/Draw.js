@@ -1,6 +1,6 @@
 /*  global
-    background, game, sidewalk, starBackground, earthObjects, humans
-    score, status, time, ship, time, postGame, startScreen
+    background, game, sidewalk, starBackground, earthObjects, humans, levelScreen
+    score, status, time, ship, time, postGame, startScreen, controlsScreen
 */
 
 function draw () {
@@ -8,6 +8,8 @@ function draw () {
 
   if (game.state.current === game.state.start) {
     startScreen.show()
+  } else if (game.state.current === game.state.level) {
+    levelScreen.show()
   } else if (game.state.current === game.state.playing) {
     sidewalk.show()
 

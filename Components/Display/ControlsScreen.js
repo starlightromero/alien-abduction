@@ -1,17 +1,11 @@
 /*  global
-    Display, width, height, textFont, textAlign, CENTER, textSize, strokeWeight
-    stroke, noFill, text, Clickable
+    Display, height
 */
 
 class ControlsScreen extends Display {
   constructor () {
     super()
-    this.x = width / 2
     this.y = height / 10
-  }
-
-  titleText () {
-    text('CONTROLS', this.x, this.y)
   }
 
   onDismiss () {
@@ -20,6 +14,6 @@ class ControlsScreen extends Display {
 
   show () {
     this.dismissScreen()
-    this.title()
+    this.title('CONTROLS')
   }
 }

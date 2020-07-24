@@ -10,6 +10,7 @@ class Display {
     this.titleSize = width / 12
     this.headingSize = this.titleSize / 3.5
     this.fontSize = height / 25
+    this.x = width / 2
   }
 
   color () {
@@ -24,14 +25,14 @@ class Display {
     }
   }
 
-  title () {
+  title (titleText) {
     textFont(this.font)
     textAlign(CENTER, CENTER)
     textSize(this.titleSize)
     strokeWeight(4)
     stroke(this.color())
     noFill()
-    this.titleText()
+    text(titleText, this.x, this.y)
   }
 
   dismissScreen () {

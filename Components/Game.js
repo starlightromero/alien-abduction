@@ -1,5 +1,5 @@
 /*  global
-    millis
+    millis, gameStart
 */
 
 class Game {
@@ -8,11 +8,12 @@ class Game {
       current: '',
       controls: 'controls',
       start: 'start',
+      level: 'level',
       playing: 'playing',
       completed: 'completed',
       gameover: 'gameover'
     }
-    this.level = 0
+    this.level = 1
   }
 
   timeRemaining () {

@@ -2,7 +2,7 @@
   createCanvas, angleMode, windowWidth, windowHeight, Game, Display, Score
   earthObjects, StreetLight, Tree, Fountain, DEGREES, MotherShip, Status, Time
   Sidewalk, Parental, Cycler, FireHydrant, DogServant, humans, StartScreen, PostGame
-  Beam
+  Beam, possibleXValues, millis, width, random, ControlsScreen, LevelScreen
 */
 
 function setup () {
@@ -49,4 +49,5 @@ function setup () {
   startScreen = new StartScreen()
   postGame = new PostGame()
   controlsScreen = new ControlsScreen()
+  levelScreen = new LevelScreen()
 }
