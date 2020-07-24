@@ -23,18 +23,16 @@ function draw () {
       // human.pause()
     }
 
-    if (game.timeRemaining() !== 0) {
-      score.show()
-      status.show()
-      time.show()
-      ship.fly()
-    }
+    score.show()
+    status.show()
+    time.show()
+    ship.fly()
 
     ship.show()
   } else if (game.state.current === game.state.completed) {
     postGame.show()
   } else if (game.state.current === game.state.gameover) {
-    postGame.show()
+    gameover.show()
   } else if (game.state.current === game.state.controls) {
     controlsScreen.show()
   }

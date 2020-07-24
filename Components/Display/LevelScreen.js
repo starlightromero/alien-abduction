@@ -48,9 +48,9 @@ class LevelScreen extends Display {
     textSize(this.fontSize)
     noStroke()
     fill(this.color())
-    text(`REQUIRED SCORE: ${game.assignment()[0]}`, this.x, this.y + this.headingSize * 4)
+    text(`REQUIRED SCORE: ${game.scoreNeeded()}`, this.x, this.y + this.headingSize * 4)
     text('OR', this.x, this.y + this.headingSize * 5)
-    text(`REQUIRED HUMANS: ${game.assignment()[1]}`, this.x, this.y + this.headingSize * 6)
+    text(`REQUIRED HUMANS: ${game.humansNeeded()}`, this.x, this.y + this.headingSize * 6)
   }
 
   heading () {

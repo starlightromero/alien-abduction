@@ -50,4 +50,5 @@ function setup () {
   postGame = new PostGame()
   controlsScreen = new ControlsScreen()
   levelScreen = new LevelScreen()
+  gameoverScreen = new GameoverScreen()
 }

@@ -1,5 +1,5 @@
 /*  global
-    millis, levelStart
+    millis, levelStart, ship
 */
 
 class Game {
@@ -16,10 +16,12 @@ class Game {
     this.level = 1
   }
 
-  assignment () {
-    const scoreNeeded = this.level * 500
-    const humansNeeded = this.level * 10
-    return [scoreNeeded, humansNeeded]
+  scoreNeeded () {
+    return this.level * 500
+  }
+
+  humansNeeded () {
+    return this.level * 10
   }
 
   timeRemaining () {
@@ -29,8 +31,11 @@ class Game {
     const timeRemaining = seconds - timePassed
     if (timeRemaining >= 0) {
       return timeRemaining
-    } else {
+    } else if (ship.score >= this.scoreNeeded()) {
       this.state.current = this.state.completed
+      return 0
+    } else {
+      this.state.current = this.state.gameover
       return 0
     }
   }
