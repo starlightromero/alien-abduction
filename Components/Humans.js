@@ -1,5 +1,5 @@
 /*  global
-    ShowImage, width, height, random
+    ShowImage, width, height, random, delay
 */
 
 class Human extends ShowImage {
@@ -25,17 +25,19 @@ class Human extends ShowImage {
   }
 
   offScreen () {
-    if (this.randomWalk < 6) {
+    if (this.randomWalk < 25) {
       this.x = 0
       this.walkingRight = true
-      this.speed = random(2, 8)
     } else {
       this.x = width
       this.walkingRight = false
-      this.speed = random(2, 8)
     }
   }
 
+  resumeWalking () {
+    this.walkSpeed = random(1, 4)
+  }
+// I need to be able to cause pauseWalking & resumeWalking within the walk function so that it's called more than once
   walk () {
     if (this.walkingRight && this.x < width + 500) {
       this.right()
@@ -54,20 +56,31 @@ class Human extends ShowImage {
 class Parental extends Human {
   constructor (x) {
     super()
-    this.x = x
+    this.x = x * random(100)
     this.pointValue = 80
-    this.walkSpeed = 2
+    this.walkSpeed = 3
     this.walkingRight = true
     this.rightVersion = parentalSubRight
     this.leftVersion = parentalSubLeft
     this.img = this.rightVersion
+  }
+
+  pauseWalking () {
+    console.log(randomNumber)
+    if (randomNumber < 26) {
+      this.walkSpeed = 0
+      console.log('Parental pausing right walking')
+      setTimeout(this.resumeWalking.bind(this), 2500)
+    } else {
+      this.walkSpeed = this.walkSpeed
+    }
   }
 }
 
 class Cycler extends Human {
   constructor (x) {
     super()
-    this.x = x
+    this.x = x * random(100)
     this.pointValue = 65
     this.walkSpeed = 4
     this.walkingRight = true
@@ -75,12 +88,23 @@ class Cycler extends Human {
     this.leftVersion = cyclerSubLeft
     this.img = this.rightVersion
   }
+
+  pauseWalking () {
+    console.log(randomNumber)
+    if (randomNumber > 26 && randomNumber < 40) {
+      this.walkSpeed = 0
+      console.log('Cycler pausing right walking')
+      setTimeout(this.resumeWalking.bind(this), 2500)
+    } else {
+      this.walkSpeed = this.walkSpeed
+    }
+  }
 }
 
 class DogServant extends Human {
   constructor (x) {
     super()
-    this.x = x
+    this.x = x * random(100)
     this.pointValue = 50
     this.walkSpeed = 2
     this.walkingRight = false
@@ -89,5 +113,16 @@ class DogServant extends Human {
     this.leftVersion = dogServantSubLeftOne
     this.leftVersionTwo = dogServantSubLeftOne
     this.img = this.rightVersion
+  }
+
+  pauseWalking () {
+    console.log(randomNumber)
+    if (randomNumber > 40) {
+      this.walkSpeed = 0
+      console.log('DogServant pausing right walking')
+      setTimeout(this.resumeWalking.bind(this), 2500)
+    } else {
+      this.walkSpeed = this.walkSpeed
+    }
   }
 }

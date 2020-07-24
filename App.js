@@ -15,8 +15,11 @@ let tree
 const earthObjects = []
 
 const humans = []
+let randomNumber
 let possibleXValues
 let parental
+let parental2
+let parental3
 let cycler
 let dogServant
 

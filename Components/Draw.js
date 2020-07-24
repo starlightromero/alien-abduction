@@ -6,6 +6,8 @@
 function draw () {
   background(starBackground)
 
+  randomNumber = random(20)
+
   if (game.state.current === game.state.start) {
     preGame.show()
   } else if (game.state.current === game.state.playing) {
@@ -18,6 +20,7 @@ function draw () {
     for (const human of humans) {
       human.show()
       human.walk()
+      human.pauseWalking()
       // human.pause()
     }
 

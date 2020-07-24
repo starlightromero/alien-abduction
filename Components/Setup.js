@@ -27,14 +27,17 @@ function setup () {
   possibleXValues = [0, width, -50, width + 50, -25, width + 25]
 
   parental = new Parental(random(possibleXValues))
-  parental2 = new Parental(random(possibleXValues + 1))
+  parental2 = new Parental(random(possibleXValues))
+  parental3 = new Parental(random(possibleXValues))
   cycler = new Cycler(random(possibleXValues))
   dogServant = new DogServant(random(possibleXValues))
 
   humans.push(parental)
   humans.push(parental2)
+  humans.push(parental3)
   humans.push(cycler)
   humans.push(dogServant)
+  console.log(humans)
 
   ship = new MotherShip()
   angle = 1
