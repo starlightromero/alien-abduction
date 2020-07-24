@@ -1,6 +1,6 @@
 /*  global
     Display, width, height, textFont, textAlign, CENTER, textSize, noStroke
-    text, score, ship, strokeWeight, noFill, stroke, Clickable, fill
+    text, score, ship, strokeWeight, noFill, stroke, Clickable, fill, game
 */
 
 class GameoverScreen extends Display {
@@ -33,6 +33,7 @@ class GameoverScreen extends Display {
     returnHomeButton.onPress = function () {
       ship.score = 0
       ship.abductionCount.total = 0
+      game.level = 0
       game.state.current = game.state.start
     }
     returnHomeButton.draw()
