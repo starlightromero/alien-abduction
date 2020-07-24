@@ -118,7 +118,6 @@ class Status extends Display {
 class Time extends Display {
   constructor () {
     super()
-    this.x = width / 2
     this.y = height / 2
     this.width = width / 20
     this.height = height / 20

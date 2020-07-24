@@ -33,7 +33,7 @@ class GameoverScreen extends Display {
     returnHomeButton.onPress = function () {
       ship.score = 0
       ship.abductionCount.total = 0
-      game.level = 0
+      game.level = 1
       game.state.current = game.state.start
     }
     returnHomeButton.draw()
