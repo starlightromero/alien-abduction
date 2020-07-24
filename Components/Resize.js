@@ -10,8 +10,8 @@ function windowResized () {
   startScreen.y = height / 4
   startScreen.fontSize = width / 12
 
-  score.scorex = width - 5
-  score.x = width
+  // score.scorex = width - 5
+  // score.x = width
   status.statusx = width - 15
   status.x = width
 

@@ -39,13 +39,12 @@ let ship
 let angle
 
 let display
-let score
-let status
 let time
 let startScreen
 let postGame
 let controlsScreen
 let levelScreen
 let levelStart
+let controlCenter
 let completedScreen
 let gameoverScreen

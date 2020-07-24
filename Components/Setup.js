@@ -1,8 +1,9 @@
 /*  global
-  createCanvas, angleMode, windowWidth, windowHeight, Game, Display, Score
+  createCanvas, angleMode, windowWidth, windowHeight, Game, Display
   earthObjects, StreetLight, Tree, Fountain, DEGREES, MotherShip, Status, Time
-  Sidewalk, Parental, Cycler, FireHydrant, DogServant, humans, StartScreen, PostGame
+  Sidewalk, Parental, Cycler, FireHydrant, DogServant, humans, StartScreen
   Beam, possibleXValues, millis, width, random, ControlsScreen, LevelScreen
+  ControlCenter, CompletedScreen, GameoverScreen
 */
 
 function setup () {
@@ -43,12 +44,11 @@ function setup () {
   beam = new Beam()
 
   display = new Display()
-  score = new Score()
-  status = new Status()
   time = new Time()
   startScreen = new StartScreen()
   controlsScreen = new ControlsScreen()
   levelScreen = new LevelScreen()
+  controlCenter = new ControlCenter()
   completedScreen = new CompletedScreen()
   gameoverScreen = new GameoverScreen()
 }

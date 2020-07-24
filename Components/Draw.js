@@ -1,7 +1,7 @@
 /*  global
     background, game, sidewalk, starBackground, earthObjects, humans
-    score, status, time, ship, time, startScreen, levelScreen, controlsScreen
-    gameoverScreen, completedScreen
+    time, ship, time, startScreen, levelScreen, controlsScreen
+    gameoverScreen, completedScreen, controlCenter
 */
 
 function draw () {
@@ -24,8 +24,7 @@ function draw () {
       // human.pause()
     }
 
-    score.show()
-    status.show()
+    controlCenter.show()
     time.show()
     ship.fly()
 

@@ -1,6 +1,6 @@
 /*  global
     width, height, textFont, textAlign, textSize, noStroke, fill, rect, text
-    strokeWeight, stroke, noFill, circle, CENTER, RIGHT, orbiterFont
+    strokeWeight, stroke, noFill, circle, CENTER, RIGHT, orbiterFont, LEFT
     ship, game, Clickable
 */
 
@@ -56,62 +56,49 @@ class Display {
   }
 }
 
-class Score extends Display {
+class ControlCenter extends Display {
   constructor () {
     super()
-    this.score = 0
-    this.scorex = width - 5
-    this.scorey = this.fontSize
-
-    this.x = width
-    this.y = this.scorey - this.fontSize / 2
-    this.height = this.fontSize * 1.2
-  }
-
-  checkScoreLength () {
-    this.scoreLength = ship.score.toString().length
-    this.width = -160 - (this.fontSize * this.scoreLength / 1.5)
-  }
-
-  show () {
-    textFont(this.font)
-    textSize(this.fontSize)
-    textAlign(RIGHT, CENTER)
-    noStroke()
-    fill(this.color())
-    rect(this.x, this.y, this.width, this.height)
-    fill(0)
-    text(`SCORE: ${ship.score}`, this.scorex, this.scorey)
-    this.checkScoreLength()
-  }
-}
-
-class Status extends Display {
-  constructor () {
-    super()
+    this.x = 0
+    this.y = 0
+    this.width = width
+    this.height = height / 18
     this.currentStatus = ship.currentStatus
-    this.statusx = width - 15
-    this.statusy = this.fontSize * 3
-
-    this.x = width
-    this.y = this.statusy - this.fontSize / 2
-    this.width = -300
-    this.height = this.fontSize * 1.2
   }
 
-  show () {
+  status () {
     textFont(this.font)
     textSize(this.fontSize)
-    textAlign(RIGHT, CENTER)
+    textAlign(CENTER, CENTER)
     noStroke()
-    fill(this.color())
-    rect(this.x, this.y, this.width, this.height)
     fill(0)
-    text(`STATUS: ${this.currentStatus}`, this.statusx, this.statusy)
+    text(`STATUS: ${this.update()}`, width / 2, this.y + 20)
   }
 
   update () {
     this.currentStatus = ship.currentStatus
+    return this.currentStatus
+  }
+
+  score () {
+    textFont(this.font)
+    textSize(this.fontSize)
+    textAlign(LEFT, CENTER)
+    noStroke()
+    fill(0)
+    text(`SCORE: ${ship.score}`, this.x + 20, this.y + 20)
+  }
+
+  background () {
+    noStroke()
+    fill(this.color())
+    rect(this.x, this.y, this.width, this.height)
+  }
+
+  show () {
+    this.background()
+    this.score()
+    this.status()
   }
 }
 
