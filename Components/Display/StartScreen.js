@@ -1,5 +1,5 @@
 /*  global
-    Display, height, Clickable, game, millis
+    Display, height, Clickable, game
 */
 
 class StartScreen extends Display {
@@ -17,7 +17,7 @@ class StartScreen extends Display {
     originButton.strokeWeight = 0
     originButton.text = 'ORIGIN'
     originButton.textColor = '#0A005C'
-    originButton.textSize = this.headingSize
+    originButton.textSize = this.buttonSize
     originButton.textFont = this.font
     originButton.textScaled = true
     originButton.onHover = function () {
@@ -43,7 +43,7 @@ class StartScreen extends Display {
     controlsButton.strokeWeight = 0
     controlsButton.text = 'CONTROLS'
     controlsButton.textColor = '#0A005C'
-    controlsButton.textSize = this.headingSize
+    controlsButton.textSize = this.buttonSize
     controlsButton.textFont = this.font
     controlsButton.textScaled = true
     controlsButton.onHover = function () {
@@ -69,7 +69,7 @@ class StartScreen extends Display {
     startGameButton.strokeWeight = 0
     startGameButton.text = 'START GAME'
     startGameButton.textColor = '#0A005C'
-    startGameButton.textSize = this.headingSize
+    startGameButton.textSize = this.buttonSize
     startGameButton.textFont = this.font
     startGameButton.textScaled = true
     startGameButton.onHover = function () {
@@ -81,7 +81,6 @@ class StartScreen extends Display {
       startGameButton.draw()
     }
     startGameButton.onPress = function () {
-      gameStart = millis()
       game.state.current = game.state.level
     }
     startGameButton.draw()

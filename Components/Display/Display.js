@@ -8,7 +8,8 @@ class Display {
   constructor () {
     this.font = orbiterFont
     this.titleSize = width / 12
-    this.headingSize = this.titleSize / 3.5
+    this.headingSize = this.titleSize / 2
+    this.buttonSize = this.titleSize / 3.5
     this.fontSize = height / 25
     this.x = width / 2
   }

@@ -1,5 +1,4 @@
 let game
-let gameStart
 
 let starBackground
 let sidewalk
@@ -47,3 +46,4 @@ let startScreen
 let postGame
 let controlsScreen
 let levelScreen
+let levelStart

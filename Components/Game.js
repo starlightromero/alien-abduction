@@ -1,5 +1,5 @@
 /*  global
-    millis, gameStart
+    millis, levelStart
 */
 
 class Game {
@@ -16,10 +16,16 @@ class Game {
     this.level = 1
   }
 
+  assignment () {
+    const scoreNeeded = this.level * 500
+    const humansNeeded = this.level * 10
+    return [scoreNeeded, humansNeeded]
+  }
+
   timeRemaining () {
     const seconds = 60
     const currentTime = millis()
-    const timePassed = Math.floor((currentTime - gameStart) / 1000)
+    const timePassed = Math.floor((currentTime - levelStart) / 1000)
     const timeRemaining = seconds - timePassed
     if (timeRemaining >= 0) {
       return timeRemaining
