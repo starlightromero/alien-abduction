@@ -45,6 +45,6 @@ let postGame
 let controlsScreen
 let levelScreen
 let levelStart
-let controlCenter
+let statusBar
 let completedScreen
 let gameoverScreen

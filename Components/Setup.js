@@ -48,7 +48,7 @@ function setup () {
   startScreen = new StartScreen()
   controlsScreen = new ControlsScreen()
   levelScreen = new LevelScreen()
-  controlCenter = new ControlCenter()
+  statusBar = new StatusBar()
   completedScreen = new CompletedScreen()
   gameoverScreen = new GameoverScreen()
 }
