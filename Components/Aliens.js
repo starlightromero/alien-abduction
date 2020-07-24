@@ -179,8 +179,8 @@ class MotherShip extends ShowImage {
   }
 
   crashed () {
-    this.x > width / 2 - this.width / 2 ? this.x -= 2 : this.x += 2
-    this.y > 0 ? this.y -= 2 : 0
+    this.x > width / 2 - this.width / 2 ? this.x -= 1 : this.x += 1
+    this.y > height / 18 + 1 ? this.y -= 2 : height / 18 + 1
   }
 
   fly () {
