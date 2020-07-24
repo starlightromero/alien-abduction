@@ -42,8 +42,12 @@ let ship
 let angle
 
 let display
-let score
-let status
 let time
-let preGame
+let startScreen
 let postGame
+let controlsScreen
+let levelScreen
+let levelStart
+let statusBar
+let completedScreen
+let gameoverScreen

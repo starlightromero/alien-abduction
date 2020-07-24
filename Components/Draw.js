@@ -1,6 +1,7 @@
 /*  global
-    background, game, preGame, sidewalk, starBackground, earthObjects, humans
-    score, status, time, ship, time, postGame
+    background, game, sidewalk, starBackground, earthObjects, humans
+    time, ship, time, startScreen, levelScreen, controlsScreen
+    gameoverScreen, completedScreen, statusBar
 */
 
 function draw () {
@@ -9,7 +10,9 @@ function draw () {
   randomNumber = random(20)
 
   if (game.state.current === game.state.start) {
-    preGame.show()
+    startScreen.show()
+  } else if (game.state.current === game.state.level) {
+    levelScreen.show()
   } else if (game.state.current === game.state.playing) {
     sidewalk.show()
 
@@ -24,15 +27,16 @@ function draw () {
       // human.pause()
     }
 
-    if (time.update() !== 0) {
-      score.show()
-      status.show()
-      time.show()
-      ship.fly()
-    }
+    statusBar.show()
+    time.show()
+    ship.fly()
 
     ship.show()
+  } else if (game.state.current === game.state.completed) {
+    completedScreen.show()
   } else if (game.state.current === game.state.gameover) {
-    postGame.show()
+    gameoverScreen.show()
+  } else if (game.state.current === game.state.controls) {
+    controlsScreen.show()
   }
 }

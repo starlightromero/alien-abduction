@@ -1,16 +1,25 @@
 /*  global
     resizeCanvas, windowWidth, windowHeight, width, height, sidewalk, hydrant
-    fountain, humans, score, status, tree, light, preGame, game
+    fountain, humans, score, status, tree, light, startScreen, time, postGame
 */
 
 function windowResized () {
   resizeCanvas(windowWidth, windowHeight)
 
-  if (game.state.current) {
-    preGame.x = width / 2
-    preGame.y = height / 4
-    preGame.fontSize = width / 12
-  }
+  startScreen.x = width / 2
+  startScreen.y = height / 4
+  startScreen.fontSize = width / 12
+
+  // score.scorex = width - 5
+  // score.x = width
+  status.statusx = width - 15
+  status.x = width
+
+  time.x = width / 2
+  time.y = height / 2
+  time.width = width / 20
+  time.height = height / 20
+  time.fontSize = height / 7
 
   sidewalk.y = height - sidewalk.height
 
@@ -26,8 +35,7 @@ function windowResized () {
     human.y = height - (sidewalk.height + human.height)
   }
 
-  score.scorex = width - 5
-  score.x = width
-  status.statusx = width - 15
-  status.x = width
+  postGame.x = width / 2
+  postGame.y = height / 4
+  postGame.fontSize = width / 7
 }

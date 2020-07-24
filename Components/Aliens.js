@@ -1,6 +1,7 @@
 /*  global
-    ShowImage, width, height, keyIsDown, collideRectRect
-    LEFT_ARROW, RIGHT_ARROW, UP_ARROW, DOWN_ARROW, keyPressed
+    ShowImage, width, height, keyIsDown, collideRectRect, humans, earthObjects
+    LEFT_ARROW, RIGHT_ARROW, UP_ARROW, DOWN_ARROW, keyPressed, ship, beamImg
+    sidewalk, random, possibleXValues, shipImg, beam, controlCenter
 */
 
 class Beam extends ShowImage {
@@ -78,7 +79,7 @@ class Beam extends ShowImage {
       if (human.y + (human.height / 2) <= this.y) {
         human.x = random(possibleXValues)
         human.y = height - (sidewalk.height + this.height)
-        score.score += human.pointValue
+        ship.score += human.pointValue
         ship.abductionCount.total++
       }
     }
@@ -103,10 +104,11 @@ class MotherShip extends ShowImage {
     this.width = shipImg.width / 4
     this.height = shipImg.height / 4
     this.x = width / 2 - this.width / 2
-    this.y = 0
+    this.y = height / 18
     this.speed = 5
     this.tilt = 0.25
     this.beam = false
+    this.score = 0
     this.abductionCount = {
       total: 0
     }
@@ -116,6 +118,11 @@ class MotherShip extends ShowImage {
       crashed: 'CRASHED'
     }
     this.currentStatus = this.status.good
+  }
+
+  reset () {
+    this.x = width / 2 - this.width / 2
+    this.y = height / 18
   }
 
   // rotateLeft () {
@@ -150,7 +157,7 @@ class MotherShip extends ShowImage {
         this.x += this.speed
       } else if (keyIsDown(DOWN_ARROW) && this.y < height - this.height - sidewalk.height - 4) {
         this.y += this.speed
-      } else if (keyIsDown(UP_ARROW) && this.y > 0) {
+      } else if (keyIsDown(UP_ARROW) && this.y > height / 18 + 1) {
         this.y -= this.speed
       }
 
@@ -165,12 +172,10 @@ class MotherShip extends ShowImage {
 
   resetStatus () {
     this.currentStatus = this.status.good
-    status.update()
   }
 
   changeStatus (newStatus, duration) {
     this.currentStatus = this.status[newStatus]
-    status.update()
     setTimeout(this.resetStatus.bind(this), duration)
   }
 
@@ -179,8 +184,8 @@ class MotherShip extends ShowImage {
   }
 
   crashed () {
-    this.x > width / 2 - this.width / 2 ? this.x -= 2 : this.x += 2
-    this.y > 0 ? this.y -= 2 : 0
+    this.x > width / 2 - this.width / 2 ? this.x -= 1 : this.x += 1
+    this.y > height / 18 + 1 ? this.y -= 2 : height / 18 + 1
   }
 
   fly () {

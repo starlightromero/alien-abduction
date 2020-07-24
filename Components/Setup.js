@@ -1,13 +1,16 @@
 /*  global
-  createCanvas, angleMode, windowWidth, windowHeight, Game, game, Display, Score
+  createCanvas, angleMode, windowWidth, windowHeight, Game, Display
   earthObjects, StreetLight, Tree, Fountain, DEGREES, MotherShip, Status, Time
-  Sidewalk, Parental, Cycler, FireHydrant, DogServant, humans, PreGame, PostGame
-  Beam
+  Sidewalk, Parental, Cycler, FireHydrant, DogServant, humans, StartScreen
+  Beam, possibleXValues, millis, width, random, ControlsScreen, LevelScreen
+  ControlCenter, CompletedScreen, GameoverScreen
 */
 
 function setup () {
   createCanvas(windowWidth, windowHeight)
   angleMode(DEGREES)
+
+  appStart = millis()
 
   game = new Game()
   game.state.current = game.state.start
@@ -44,9 +47,11 @@ function setup () {
   beam = new Beam()
 
   display = new Display()
-  score = new Score()
-  status = new Status()
   time = new Time()
-  preGame = new PreGame()
-  postGame = new PostGame()
+  startScreen = new StartScreen()
+  controlsScreen = new ControlsScreen()
+  levelScreen = new LevelScreen()
+  statusBar = new StatusBar()
+  completedScreen = new CompletedScreen()
+  gameoverScreen = new GameoverScreen()
 }
