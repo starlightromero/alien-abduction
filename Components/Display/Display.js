@@ -81,7 +81,7 @@ class Score extends Display {
     fill(this.color())
     rect(this.x, this.y, this.width, this.height)
     fill(0)
-    text(`SCORE: ${this.score}`, this.scorex, this.scorey)
+    text(`SCORE: ${ship.score}`, this.scorex, this.scorey)
     this.checkScoreLength()
   }
 }

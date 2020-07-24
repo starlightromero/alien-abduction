@@ -17,7 +17,7 @@ class GameoverScreen extends Display {
     noStroke()
     fill(this.color())
     text(`HUMANS ABDUCTED: ${ship.abductionCount.total}`, this.x, this.y + this.fontSize / 1.25)
-    text(`SCORE: ${score.score}`, this.x, this.y + this.fontSize * 1.25)
+    text(`SCORE: ${ship.score}`, this.x, this.y + this.fontSize * 1.25)
   }
 
   gameover () {
