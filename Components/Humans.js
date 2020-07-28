@@ -1,5 +1,7 @@
 /*  global
-    ShowImage, width, height, random, delay
+    ShowImage, width, height, random, sidewalk, light, parentalSubRight
+    parentalSubLeft, randomNumber, dogServantSubRightOne, dogServantSubRightTwo
+    dogServantSubLeftOne, dogServantSubLeftTwo, cyclerSubRight, cyclerSubLeft
 */
 
 class Human extends ShowImage {
@@ -7,7 +9,7 @@ class Human extends ShowImage {
     super()
     this.height = light.height / 2.5
     this.width = this.height
-    this.y = height - (sidewalk.height + this.height)
+    this.y = height - sidewalk.height - this.height
     // this.paused = false
     // Will need to define this globally? Potentially? Also, need to refactor generate so that I can take an argument to make this work
     // This is to pseudo randomize the x values so that child class instantiations don't appear on top of each other
@@ -37,7 +39,8 @@ class Human extends ShowImage {
   resumeWalking () {
     this.walkSpeed = random(1, 4)
   }
-// I need to be able to cause pauseWalking & resumeWalking within the walk function so that it's called more than once
+  // I need to be able to cause pauseWalking & resumeWalking within the walk function so that it's called more than once
+
   walk () {
     if (this.walkingRight && this.x < width + 500) {
       this.right()
@@ -66,13 +69,9 @@ class Parental extends Human {
   }
 
   pauseWalking () {
-    console.log(randomNumber)
     if (randomNumber < 26) {
       this.walkSpeed = 0
-      console.log('Parental pausing right walking')
       setTimeout(this.resumeWalking.bind(this), 2500)
-    } else {
-      this.walkSpeed = this.walkSpeed
     }
   }
 }
@@ -90,7 +89,6 @@ class Cycler extends Human {
   }
 
   pauseWalking () {
-    console.log(randomNumber)
     if (randomNumber > 26 && randomNumber < 40) {
       this.walkSpeed = 0
       console.log('Cycler pausing right walking')
@@ -111,18 +109,15 @@ class DogServant extends Human {
     this.rightVersion = dogServantSubRightOne
     this.rightVersionTwo = dogServantSubRightTwo
     this.leftVersion = dogServantSubLeftOne
-    this.leftVersionTwo = dogServantSubLeftOne
+    this.leftVersionTwo = dogServantSubLeftTwo
     this.img = this.rightVersion
   }
 
   pauseWalking () {
-    console.log(randomNumber)
     if (randomNumber > 40) {
       this.walkSpeed = 0
       console.log('DogServant pausing right walking')
       setTimeout(this.resumeWalking.bind(this), 2500)
-    } else {
-      this.walkSpeed = this.walkSpeed
     }
   }
 }

@@ -7,8 +7,6 @@
 function draw () {
   background(starBackground)
 
-  randomNumber = random(20)
-
   if (game.state.current === game.state.start) {
     startScreen.show()
   } else if (game.state.current === game.state.level) {
@@ -24,7 +22,6 @@ function draw () {
       human.show()
       human.walk()
       human.pauseWalking()
-      // human.pause()
     }
 
     statusBar.show()

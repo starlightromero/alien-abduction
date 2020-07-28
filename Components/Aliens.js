@@ -27,7 +27,15 @@ class Beam extends ShowImage {
     ship.beam = true
 
     for (const human of humans) {
-      this.abduct(human, humans.indexOf(human))
+      const hit = collideRectRect(this.x, this.y, this.width, this.height, human.x, human.y, human.width, human.height)
+      if (hit) {
+        this.abduct(human, humans.indexOf(human))
+      } else {
+        const backToEarth = height - sidewalk.height - human.height
+        if (human.y < backToEarth) {
+          human.y += this.abductionSpeed
+        }
+      }
     }
 
     for (const earthObject of earthObjects) {
@@ -71,17 +79,14 @@ class Beam extends ShowImage {
   }
 
   abduct (human, index) {
-    const hit = collideRectRect(this.x, this.y, this.width, this.height, human.x, human.y, human.width, human.height)
-    if (hit) {
-      keyPressed()
-      human.x = this.x + this.width / 2 - human.width / 2
-      human.y -= this.abductionSpeed
-      if (human.y + (human.height / 2) <= this.y) {
-        human.x = random(possibleXValues)
-        human.y = height - (sidewalk.height + this.height)
-        ship.score += human.pointValue
-        ship.abductionCount.total++
-      }
+    keyPressed()
+    human.x = this.x + this.width / 2 - human.width / 2
+    human.y -= this.abductionSpeed
+    if (human.y + (human.height / 2) <= this.y) {
+      human.x = random(possibleXValues)
+      human.y = height - sidewalk.height - human.height
+      ship.score += human.pointValue
+      ship.abductionCount.total++
     }
   }
 

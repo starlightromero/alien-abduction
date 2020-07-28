@@ -42,7 +42,6 @@ function setup () {
   humans.push(parental3)
   humans.push(cycler)
   humans.push(dogServant)
-  console.log(humans)
 
   ship = new MotherShip()
   angle = 1
