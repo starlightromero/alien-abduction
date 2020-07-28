@@ -1,7 +1,7 @@
 /*  global
     background, game, sidewalk, starBackground, earthObjects, humans
     time, ship, time, startScreen, levelScreen, controlsScreen
-    gameoverScreen, completedScreen, statusBar
+    gameoverScreen, completedScreen, statusBar, random, optionsScreen
 */
 
 function draw () {
@@ -38,5 +38,7 @@ function draw () {
     gameoverScreen.show()
   } else if (game.state.current === game.state.controls) {
     controlsScreen.show()
+  } else if (game.state.current === game.state.options) {
+    optionsScreen.show()
   }
 }

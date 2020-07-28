@@ -7,6 +7,7 @@ class Game {
     this.state = {
       current: '',
       controls: 'controls',
+      options: 'options',
       start: 'start',
       level: 'level',
       playing: 'playing',

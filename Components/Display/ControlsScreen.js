@@ -1,5 +1,5 @@
 /*  global
-    Display, height
+    Display, height, game
 */
 
 class ControlsScreen extends Display {

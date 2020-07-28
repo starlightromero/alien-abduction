@@ -11,6 +11,7 @@ function preload () {
     loadImage('https://cdn.glitch.com/a22283c3-b46c-4b2c-a4bc-36f68affd137%2F033-tree.png?v=1595192059281')
   ]
 
+  backgroundMusic = loadSound('https://cdn.glitch.com/a22283c3-b46c-4b2c-a4bc-36f68affd137%2Ftheme.mp3?v=1595868563570')
   teleportSound = loadSound('https://cdn.glitch.com/a22283c3-b46c-4b2c-a4bc-36f68affd137%2F178346__andromadax24__s-teleport-04.mp3?v=1595212186939')
 
   beamImg = loadImage('https://cdn.glitch.com/a22283c3-b46c-4b2c-a4bc-36f68affd137%2FspaceshipBeam.png?v=1595199136040')

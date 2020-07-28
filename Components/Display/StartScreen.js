@@ -8,30 +8,30 @@ class StartScreen extends Display {
     this.y = height / 4
   }
 
-  originButton () {
-    const originButton = new Clickable()
-    originButton.resize(this.titleSize * 4, this.titleSize / 2)
-    originButton.locate(this.x - originButton.width / 2, this.y + this.titleSize * 3)
-    originButton.color = this.color()
-    originButton.cornerRadius = 100
-    originButton.strokeWeight = 0
-    originButton.text = 'ORIGIN'
-    originButton.textColor = '#0A005C'
-    originButton.textSize = this.buttonSize
-    originButton.textFont = this.font
-    originButton.textScaled = true
-    originButton.onHover = function () {
-      originButton.color = '#0A005C'
-      originButton.strokeWeight = 3
-      originButton.stroke = '#E581CA'
-      originButton.text = 'REMEMBER...'
-      originButton.textColor = '#E581CA'
-      originButton.draw()
+  optionButton () {
+    const optionButton = new Clickable()
+    optionButton.resize(this.titleSize * 4, this.titleSize / 2)
+    optionButton.locate(this.x - optionButton.width / 2, this.y + this.titleSize * 3)
+    optionButton.color = this.color()
+    optionButton.cornerRadius = 100
+    optionButton.strokeWeight = 0
+    optionButton.text = 'OPTIONS'
+    optionButton.textColor = '#0A005C'
+    optionButton.textSize = this.buttonSize
+    optionButton.textFont = this.font
+    optionButton.textScaled = true
+    optionButton.onHover = function () {
+      optionButton.color = '#0A005C'
+      optionButton.strokeWeight = 3
+      optionButton.stroke = '#E581CA'
+      optionButton.text = 'IT\'S YOUR CHOICE'
+      optionButton.textColor = '#E581CA'
+      optionButton.draw()
     }
-    originButton.onPress = function () {
-      console.log('story')
+    optionButton.onPress = function () {
+      game.state.current = game.state.options
     }
-    originButton.draw()
+    optionButton.draw()
   }
 
   controlsButton () {
@@ -90,6 +90,6 @@ class StartScreen extends Display {
     this.title('ALIEN ABDUCTION')
     this.startGameButton()
     this.controlsButton()
-    this.originButton()
+    this.optionButton()
   }
 }

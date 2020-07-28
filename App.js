@@ -1,4 +1,5 @@
 let game
+let themeSong
 
 let starBackground
 let sidewalk
@@ -46,6 +47,7 @@ let time
 let startScreen
 let postGame
 let controlsScreen
+let optionsScreen
 let levelScreen
 let levelStart
 let statusBar
