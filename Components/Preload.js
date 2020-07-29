@@ -3,30 +3,30 @@
 */
 
 function preload () {
-  starBackground = loadImage('https://cdn.glitch.com/a22283c3-b46c-4b2c-a4bc-36f68affd137%2Fstar-background.png?v=1595137971450')
-  fireHydrantImg = loadImage('https://cdn.glitch.com/a22283c3-b46c-4b2c-a4bc-36f68affd137%2Fhydrant.png?v=1595136722968')
-  streetLightImg = loadImage('https://cdn.glitch.com/a22283c3-b46c-4b2c-a4bc-36f68affd137%2Fstreet-lamp.png?v=1595140565178')
-  fountainImg = loadImage('https://cdn.glitch.com/a22283c3-b46c-4b2c-a4bc-36f68affd137%2Ffountain.png?v=1595140984946https://cdn.glitch.com/a22283c3-b46c-4b2c-a4bc-36f68affd137%2Ffountain.png?v=1595140984946')
+  starBackground = loadImage('assets/background/star-background.png')
+  fireHydrantImg = loadImage('assets/earth/hydrant.png')
+  streetLightImg = loadImage('assets/earth/street-lamp.png')
+  fountainImg = loadImage('assets/earth/fountain.png')
   treeImgs = [
-    loadImage('https://cdn.glitch.com/a22283c3-b46c-4b2c-a4bc-36f68affd137%2F033-tree.png?v=1595192059281')
+    loadImage('assets/earth/trees/033-tree.png')
   ]
 
-  backgroundMusic = loadSound('https://cdn.glitch.com/a22283c3-b46c-4b2c-a4bc-36f68affd137%2Ftheme.mp3?v=1595868563570')
-  teleportSound = loadSound('https://cdn.glitch.com/a22283c3-b46c-4b2c-a4bc-36f68affd137%2F178346__andromadax24__s-teleport-04.mp3?v=1595212186939')
+  backgroundMusic = loadSound('assets/sound/alien-abduction.mp3')
+  teleportSound = loadSound('assets/sound/theme.mp3')
 
-  beamImg = loadImage('https://cdn.glitch.com/a22283c3-b46c-4b2c-a4bc-36f68affd137%2FspaceshipBeam.png?v=1595199136040')
-  shipImg = loadImage('https://cdn.glitch.com/a22283c3-b46c-4b2c-a4bc-36f68affd137%2FalienSpaceship.png?v=1595195477862')
+  beamImg = loadImage('assets/aliens/spaceship/spaceshipBeam.png')
+  shipImg = loadImage('assets/aliens/spaceship/alienSpaceship.png')
 
-  orbiterFont = loadFont('https://cdn.glitch.com/a22283c3-b46c-4b2c-a4bc-36f68affd137%2FEarthOrbiter-YZ12.otf?v=1595213291427')
+  orbiterFont = loadFont('assets/font/EarthOrbiter-YZ12.otf')
 
-  parentalSubLeft = loadImage('https://cdn.glitch.com/a22283c3-b46c-4b2c-a4bc-36f68affd137%2Fparental-test-subject-left-02.png?v=1595176220340')
-  parentalSubRight = loadImage('https://cdn.glitch.com/a22283c3-b46c-4b2c-a4bc-36f68affd137%2Fparental-test-subject-right-03.png?v=1595176228723')
+  parentalSubLeft = loadImage('assets/humans/parental-test-subject-left-02.png')
+  parentalSubRight = loadImage('assets/humans/parental-test-subject-right-03.png')
 
-  cyclerSubLeft = loadImage('https://cdn.glitch.com/a22283c3-b46c-4b2c-a4bc-36f68affd137%2Fcycling-test-subject-left-05.png?v=1595180456668')
-  cyclerSubRight = loadImage('https://cdn.glitch.com/a22283c3-b46c-4b2c-a4bc-36f68affd137%2Fcycling-test-subject-right-04.png?v=1595180464161')
+  cyclerSubLeft = loadImage('assets/humans/cycling-test-subject-left-05.png')
+  cyclerSubRight = loadImage('assets/humans/cycling-test-subject-right-04.png')
 
-  dogServantSubLeftOne = loadImage('https://cdn.glitch.com/a22283c3-b46c-4b2c-a4bc-36f68affd137%2Fanimal-walking-human-left-stepOne_Artboard%205.png?v=1595302975343')
-  dogServantSubLeftTwo = loadImage('https://cdn.glitch.com/a22283c3-b46c-4b2c-a4bc-36f68affd137%2Fanimal-walking-human-left-stepTwo_Artboard%203.png?v=1595302997898')
-  dogServantSubRightOne = loadImage('https://cdn.glitch.com/a22283c3-b46c-4b2c-a4bc-36f68affd137%2Fanimal-walking-human-right-stepOne_Artboard%204.png?v=1595303007326')
-  dogServantSubRightTwo = loadImage('https://cdn.glitch.com/a22283c3-b46c-4b2c-a4bc-36f68affd137%2Fanimal-walking-human-right-stepTwo_Artboard%202.png?v=1595303014669')
+  dogServantSubLeftOne = loadImage('assets/humans/animal-walking-human-left-stepOne_Artboard 5.png')
+  dogServantSubLeftTwo = loadImage('assets/humans/animal-walking-human-left-stepTwo_Artboard 3.png')
+  dogServantSubRightOne = loadImage('assets/humans/animal-walking-human-right-stepOne_Artboard 4.png')
+  dogServantSubRightTwo = loadImage('assets/humans/animal-walking-human-right-stepTwo_Artboard 2.png')
 }
